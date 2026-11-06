@@ -107,6 +107,8 @@ O primeiro comando requer Python 3 e verifica consultas, restrições de integri
 
 A solução .NET e o frontend foram compilados com sucesso. As consultas foram verificadas pelo cliente MySQL no Docker. O acompanhamento detalhado está em [Progresso das aulas](docs/PROGRESSO_AULAS.md), e as funcionalidades previstas estão nas [Issues](https://github.com/Adauclever/RetroGames-Individual/issues).
 
+O andamento das tarefas está no [quadro do projeto](https://github.com/users/Adauclever/projects/1), com as funcionalidades previstas e os registros de implementação das Aulas 1 e 2.
+
 ## Desenvolvimento
 
 O projeto utiliza apoio de assistente de código conforme as diretrizes do [AGENTS.md](AGENTS.md). As verificações executadas e as limitações de cada etapa estão documentadas no repositório.

@@ -18,6 +18,6 @@ Frontend é o modelo inicial oficial do Vite.
 ## Validação e pendências
 
 Build .NET sem erros/avisos, build Vite, cinco testes de integridade e 32 verificações de integração passaram. Consultas executadas pelo cliente MySQL do Docker, não pela interface do Workbench.
-Seis Issues de funcionalidades criadas. Quadro Projects pendente por falta do escopo project na autenticação. Conferir docs/PROGRESSO_AULAS.md antes de afirmar que todos os itens formais foram concluídos.
+Quadro público https://github.com/users/Adauclever/projects/1 conferido: seis Issues de funcionalidades em Todo e dois cartões das aulas em Done. Conferir docs/PROGRESSO_AULAS.md antes de afirmar que todos os itens formais foram concluídos.
 A inspeção do Table Inspector e de VS Code/C# Dev Kit não foi realizada.
 Próxima aula: Services e regras de negócio, de acordo com novo roteiro fornecido pelo estudante.

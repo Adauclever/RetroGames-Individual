@@ -2,7 +2,7 @@
 
 ## Aula 1
 
-1. Repositório individual público, Git independente, `.gitignore`, AGENTS na raiz e seis Issues criados. **Pendente:** quadro GitHub Projects, pois a credencial atual não possui escopo `project`. A instalação de VS Code/C# Dev Kit não foi inspecionada.
+1. Repositório individual público, Git independente, `.gitignore`, AGENTS na raiz e seis Issues criados. Quadro público criado e conferido: [RetroGames — Desenvolvimento individual](https://github.com/users/Adauclever/projects/1), com seis funcionalidades em Todo e dois cartões das aulas em Done. A instalação de VS Code/C# Dev Kit não foi inspecionada.
 2. Seis projetos .NET 10 com referências conforme especificação, React/Vite inicial instalado e compilado. Frontend respondeu HTTP 200 em 127.0.0.1:5173. Criação inicial com pnpm; Node 22 portátil oficial, com SHA256 conferido, preparado para a validação final com npm. Node global preservado.
 3. Sete tabelas criadas no MySQL 8. Os scripts contêm PK, FK padrão, NOT NULL, UNIQUE e índice em nome do jogo. A definição física é documentada em MER.md. **Inspeção visual no Table Inspector do Workbench não realizada.**
 4. Seis plataformas, oito gêneros, 20 jogos, 40 vínculos; um inativo, um sem estoque, usuários vazios. Confirmado no banco.
@@ -28,4 +28,4 @@
 - `scripts/consultas/03_repositories.sql`: executado no cliente MySQL com sucesso.
 - Projeto xUnit alinhado à especificação v3; ainda sem testes unitários de Service/Controller, que não foram implementados nestas aulas.
 
-Os testes de SQL foram feitos pela linha de comando, **não pela interface do Workbench**. Assim, o código dos roteiros está implementado, mas não se deve marcar o checklist inteiro como concluído antes da criação do quadro, da inspeção no Workbench e da conferência dos pré-requisitos locais pelo estudante.
+Os testes de SQL foram feitos pela linha de comando, **não pela interface do Workbench**. Assim, o código dos roteiros está implementado, mas não se deve marcar o checklist inteiro como concluído antes da inspeção no Workbench e da conferência dos pré-requisitos locais pelo estudante. O quadro de tarefas já foi criado e está público.
