@@ -1,0 +1,34 @@
+-- Aula 2: consultas para reproduzir no Workbench. Gravações de demonstração são revertidas.
+USE retrogames_individual;
+SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci;
+SET @id=1; SET @nome='NES'; SET @idIgnorar=NULL;
+SELECT co_seq_plataforma,no_plataforma,no_fabricante,nu_ano_lancamento FROM tb_plataforma ORDER BY no_plataforma;
+SELECT co_seq_plataforma,no_plataforma,no_fabricante,nu_ano_lancamento FROM tb_plataforma WHERE co_seq_plataforma=@id;
+SELECT COUNT(*) FROM tb_plataforma WHERE no_plataforma=@nome AND (@idIgnorar IS NULL OR co_seq_plataforma<>@idIgnorar);
+SELECT COUNT(*) FROM tb_jogo WHERE co_plataforma=@id;
+START TRANSACTION;
+INSERT INTO tb_plataforma(no_plataforma,no_fabricante,nu_ano_lancamento) VALUES('Teste SQL','Teste',1990);
+SET @plataformaTeste=LAST_INSERT_ID();
+UPDATE tb_plataforma SET no_plataforma='Teste alterado',no_fabricante='Teste',nu_ano_lancamento=1991 WHERE co_seq_plataforma=@plataformaTeste;
+DELETE FROM tb_plataforma WHERE co_seq_plataforma=@plataformaTeste;
+ROLLBACK;
+SET @nome=NULL; SET @plataforma=NULL; SET @inativos=FALSE;
+SELECT COUNT(*) FROM tb_jogo WHERE (@nome IS NULL OR no_jogo LIKE @nome) AND (@plataforma IS NULL OR co_plataforma=@plataforma) AND (@inativos OR st_ativo=TRUE);
+SELECT * FROM tb_jogo WHERE (@nome IS NULL OR no_jogo LIKE @nome) AND (@plataforma IS NULL OR co_plataforma=@plataforma) AND (@inativos OR st_ativo=TRUE) ORDER BY no_jogo,co_seq_jogo LIMIT 5 OFFSET 5;
+SELECT * FROM tb_jogo WHERE no_jogo LIKE '%Mario%' AND st_ativo=TRUE ORDER BY no_jogo LIMIT 5;
+SELECT * FROM tb_jogo WHERE co_plataforma=3 AND st_ativo=TRUE ORDER BY no_jogo LIMIT 5;
+SELECT * FROM tb_jogo WHERE co_seq_jogo IN (1,2) ORDER BY no_jogo LIMIT 5;
+SELECT * FROM tb_jogo WHERE co_seq_jogo=@id;
+START TRANSACTION;
+INSERT INTO tb_jogo(no_jogo,ds_jogo,nu_ano_lancamento,vl_preco,qt_estoque,st_ativo,dt_cadastro,co_plataforma,co_condicao_jogo)
+VALUES('Teste SQL',NULL,1990,10,1,TRUE,UTC_TIMESTAMP(),1,2);
+SET @jogoTeste=LAST_INSERT_ID();
+UPDATE tb_jogo SET no_jogo='Teste alterado',ds_jogo='Descrição',nu_ano_lancamento=1991,vl_preco=20,qt_estoque=2,st_ativo=TRUE,dt_cadastro=UTC_TIMESTAMP(),co_plataforma=1,co_condicao_jogo=2 WHERE co_seq_jogo=@jogoTeste;
+UPDATE tb_jogo SET st_ativo=FALSE WHERE co_seq_jogo=@jogoTeste;
+INSERT INTO tb_jogo_genero(co_jogo,co_genero) VALUES(@jogoTeste,1),(@jogoTeste,2);
+SELECT co_jogo,co_genero FROM tb_jogo_genero ORDER BY co_jogo,co_genero;
+SELECT co_jogo,co_genero FROM tb_jogo_genero WHERE co_jogo IN (1,2) ORDER BY co_jogo,co_genero;
+DELETE FROM tb_jogo_genero WHERE co_jogo=@jogoTeste;
+ROLLBACK;
+SELECT co_seq_genero,no_genero FROM tb_genero ORDER BY no_genero;
+SELECT co_condicao_jogo,ds_condicao_jogo FROM tb_condicao_jogo ORDER BY ds_condicao_jogo;

@@ -1,6 +1,7 @@
 """Verificações reais do banco individual. Execute com Docker Desktop iniciado."""
 from pathlib import Path
 import subprocess
+import uuid
 
 raiz = Path(__file__).resolve().parents[1]
 def executar(sql, erro_esperado=None):
@@ -36,3 +37,17 @@ for nome,sql,erro in testes:
 assert executar('SELECT COUNT(*) FROM tb_jogo;').splitlines()[-1]=='20'
 assert executar('SELECT COUNT(*) FROM tb_plataforma;').splitlines()[-1]=='6'
 print('Consultas e integridade verificadas; dados de teste revertidos.')
+executar((raiz/'scripts/consultas/03_repositories.sql').read_text(encoding='utf-8'))
+print('Consultas de todos os Repositories executadas com sucesso.')
+for tentativa in range(2):
+    # Schema descartável com nome novo; nunca apaga o banco de desenvolvimento.
+    temporario = 'retrogames_validacao_' + uuid.uuid4().hex
+    executar(f'CREATE DATABASE `{temporario}` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;')
+    try:
+        for arquivo in ['01_estrutura.sql','02_dados.sql']:
+            sql = (raiz/'scripts/database'/arquivo).read_text(encoding='utf-8')
+            executar(sql.replace('USE retrogames_individual;', f'USE `{temporario}`;'))
+        assert executar(f'SELECT COUNT(*) FROM `{temporario}`.tb_jogo;').splitlines()[-1]=='20'
+    finally:
+        executar(f'DROP DATABASE `{temporario}`;')
+print('Estrutura e dados recriados duas vezes em schemas descartáveis.')
