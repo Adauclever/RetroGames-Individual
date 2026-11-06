@@ -1,0 +1,48 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetroGames.Model", "RetroGames.Model\RetroGames.Model.csproj", "{AE58B18F-A86D-494E-A7B8-E4E15B47C86A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetroGames.Repository", "RetroGames.Repository\RetroGames.Repository.csproj", "{03CC8959-49A1-4DD6-AA45-689AFB22A45B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetroGames.Services", "RetroGames.Services\RetroGames.Services.csproj", "{2EA80AC1-D8DC-4EFE-81DA-ED7D679479A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetroGames.WebApi.ApiModels", "RetroGames.WebApi.ApiModels\RetroGames.WebApi.ApiModels.csproj", "{8F083EFB-03E2-4222-A1C7-0CAA6C3266F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetroGames.WebApi", "RetroGames.WebApi\RetroGames.WebApi.csproj", "{1570E53C-E4CF-470C-BABC-B0E1EAFE2E3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetroGames.WebApi.UnitTests", "RetroGames.WebApi.UnitTests\RetroGames.WebApi.UnitTests.csproj", "{907337AA-CEB9-4163-AF31-6B358F200C57}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE58B18F-A86D-494E-A7B8-E4E15B47C86A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE58B18F-A86D-494E-A7B8-E4E15B47C86A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE58B18F-A86D-494E-A7B8-E4E15B47C86A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE58B18F-A86D-494E-A7B8-E4E15B47C86A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03CC8959-49A1-4DD6-AA45-689AFB22A45B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03CC8959-49A1-4DD6-AA45-689AFB22A45B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03CC8959-49A1-4DD6-AA45-689AFB22A45B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03CC8959-49A1-4DD6-AA45-689AFB22A45B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EA80AC1-D8DC-4EFE-81DA-ED7D679479A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EA80AC1-D8DC-4EFE-81DA-ED7D679479A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EA80AC1-D8DC-4EFE-81DA-ED7D679479A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EA80AC1-D8DC-4EFE-81DA-ED7D679479A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F083EFB-03E2-4222-A1C7-0CAA6C3266F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F083EFB-03E2-4222-A1C7-0CAA6C3266F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F083EFB-03E2-4222-A1C7-0CAA6C3266F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F083EFB-03E2-4222-A1C7-0CAA6C3266F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1570E53C-E4CF-470C-BABC-B0E1EAFE2E3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1570E53C-E4CF-470C-BABC-B0E1EAFE2E3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1570E53C-E4CF-470C-BABC-B0E1EAFE2E3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1570E53C-E4CF-470C-BABC-B0E1EAFE2E3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{907337AA-CEB9-4163-AF31-6B358F200C57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{907337AA-CEB9-4163-AF31-6B358F200C57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{907337AA-CEB9-4163-AF31-6B358F200C57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{907337AA-CEB9-4163-AF31-6B358F200C57}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
