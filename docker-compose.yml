@@ -1,0 +1,19 @@
+services:
+  database:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Configure o arquivo .env}
+      MYSQL_DATABASE: retrogames_individual
+    ports:
+      - "3307:3306"
+    volumes:
+      - dados_individuais:/var/lib/mysql
+      - ./scripts/database:/docker-entrypoint-initdb.d:ro
+    command: ["--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci"]
+    healthcheck:
+      test: ["CMD-SHELL", "MYSQL_PWD=$$MYSQL_ROOT_PASSWORD mysqladmin ping -h localhost --silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 40
+volumes:
+  dados_individuais:
