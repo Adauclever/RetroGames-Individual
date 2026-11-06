@@ -1,51 +1,112 @@
-# RetroGames — projeto individual
+# RetroGames
 
-Projeto acadêmico de **Adauclever Pacheco Lino**, separado do trabalho em grupo. Implementação das bases das Aulas 1 (ambiente, solução, banco e modelos) e 2 (Repository).
+Marketplace de jogos retrô, com catálogo público e área administrativa para manutenção de plataformas e jogos.
 
-## Estrutura
+Projeto acadêmico individual de **Adauclever Pacheco Lino**, desenvolvido conforme os roteiros da disciplina.
 
-- `Backend/RetroGames.sln`: seis projetos .NET 10 com as referências da seção 3.2.
-- `Front-end/retrogames.web`: modelo inicial React 19 + Vite 8, em JavaScript.
-- `scripts/database`: scripts numerados de estrutura e dados, executados apenas na primeira criação do volume.
-- `scripts/consultas`: exercícios SQL e testes reproduzíveis no Workbench.
-- `scripts/VerificarRepositorios`: verificação de integração com o MySQL real, fora da solução de seis projetos.
-- `docs/MER.md`: relações e decisões de tipos do banco.
-- `docs/PROGRESSO_AULAS.md`: evidências e pendências dos roteiros.
+## Estado do projeto
 
-## Executar
+| Etapa | Implementação |
+| --- | --- |
+| Aula 1 | Solução .NET com seis projetos, frontend React/Vite, estrutura do banco, dados de exemplo, consultas SQL e modelos de domínio. |
+| Aula 2 | Base ADO.NET, repositórios de plataformas, jogos, vínculos jogo-gênero, gêneros e condições, com interfaces e `RepositorySet`. |
 
-Pré-requisitos: .NET SDK 10, Node.js 22 com npm e Docker Desktop. Há também um lockfile pnpm da criação inicial; prefira npm com o package-lock.json para reproduzir a verificação final.
+As regras de negócio, os endpoints da API, a autenticação e as telas do catálogo serão desenvolvidos nas próximas etapas. O frontend está no modelo inicial do Vite. O projeto xUnit está configurado, ainda sem testes unitários.
 
-Nesta máquina foi baixado Node 22 portátil em `.ferramentas` (ignorado pelo Git), sem mudar o Node global. No PowerShell, a partir da raiz, execute `. ./scripts/usar_node22.ps1` para ativá-lo nesta sessão. Em outro computador, instale Node 22 ou use a versão indicada em `.nvmrc`.
+## Tecnologias e arquitetura
 
-1. Copie `.env.example` para `.env` e substitua **ambas** as ocorrências de `SUA_SENHA` pela mesma senha local. Não versione `.env`.
-2. Na raiz, execute `docker compose up -d --wait`. O banco individual é `retrogames_individual`, em `localhost:3307`; a porta interna é 3306.
-3. Compile: `dotnet build Backend/RetroGames.sln`.
-4. No diretório `Front-end/retrogames.web`, execute `npm ci` e `npm run dev`. Abra `http://localhost:5173`. Para gerar o build: `npm run build`.
-5. Para a estrutura inicial da API: `dotnet run --project Backend/RetroGames.WebApi --urls http://localhost:5080`.
+- .NET 10 e ASP.NET Core com controllers.
+- ADO.NET com MySqlConnector 2.6.2.
+- MySQL 8 com Docker Compose.
+- React 19, Vite 8 e JavaScript.
+- xUnit v3 para os testes unitários das próximas etapas.
 
-A API está configurada para controllers, mas ainda não possui endpoints de negócio. Services, ApiModels, autenticação e interface do catálogo pertencem às próximas aulas. O `.env` será carregado pela API na aula indicada pelo roteiro; por enquanto, somente o verificador de integração lê essa configuração.
-
-## Verificar as Aulas 1 e 2
-
-Com o banco iniciado e sem alterar os dados de exemplo:
+A arquitetura prevista segue o fluxo **Controller → Service → Repository → MySQL**. Os Repositories executam SQL parametrizado e consultam uma tabela por vez. As regras de negócio e a composição dos dados com LINQ pertencem ao Service.
 
 ```text
-python scripts/validar_banco.py
-dotnet run --project scripts/VerificarRepositorios
-dotnet test Backend/RetroGames.sln
+Backend/
+  RetroGames.sln
+  RetroGames.Model/
+  RetroGames.Repository/
+  RetroGames.Services/
+  RetroGames.WebApi.ApiModels/
+  RetroGames.WebApi/
+  RetroGames.WebApi.UnitTests/
+Front-end/retrogames.web/
+scripts/database/
+scripts/consultas/
+docs/
 ```
 
-O primeiro comando exige Python 3 e o cliente Docker, verifica integridade e reverte os dados temporários. O segundo executa 32 verificações reais, incluindo paginação, listas vazias, SQL injection, CRUD, duplicidade e rollback. O projeto xUnit v3 foi preparado para as futuras aulas de testes; ainda não contém testes unitários.
+## Como executar
 
-No Workbench, conecte em `localhost:3307`, usuário `root`, usando a senha do seu `.env`. Abra os arquivos de `scripts/consultas`; nos testes com erro esperado, execute cada bloco separadamente e finalize com `ROLLBACK`. O SQL dos exercícios da Aula 1 usa JOIN; os Repositories da Aula 2 consultam uma tabela por vez.
+Pré-requisitos: **.NET SDK 10**, **Node.js 22 com npm** e **Docker Desktop** iniciado. O MySQL Workbench pode ser usado para consultar e inspecionar o banco.
 
-O banco possui sete tabelas, seis plataformas, oito gêneros, 20 jogos, 40 vínculos, três condições e dois perfis. Usuários permanecem vazios; um jogo está inativo e outro sem estoque. Atari 2600 não tem jogos, permitindo verificar a contagem zero.
+Clone o repositório:
 
-## Acompanhamento
+```bash
+git clone https://github.com/Adauclever/RetroGames-Individual.git
+cd RetroGames-Individual
+```
 
-Repositório: https://github.com/Adauclever/RetroGames-Individual
+Copie `.env.example` para `.env`. No PowerShell:
 
-As seis funcionalidades do escopo estão cadastradas nas Issues. O quadro GitHub Projects depende da autorização adicional `project` na conta autenticada. Elas continuam abertas porque as próximas aulas implementarão os fluxos completos.
+```powershell
+Copy-Item .env.example .env
+```
 
-Há commits separados para as etapas. Nenhum arquivo ou histórico do repositório do grupo foi reaproveitado como histórico individual; a solução inicial foi copiada como base e os créditos desta origem são preservados aqui.
+Substitua as duas ocorrências de `SUA_SENHA` pela mesma senha local. O `.env` é ignorado pelo Git.
+
+Na raiz, inicie o banco e compile a solução:
+
+```bash
+docker compose up -d --wait
+dotnet build Backend/RetroGames.sln
+```
+
+O banco `retrogames_individual` estará disponível em **localhost:3307**, com usuário `root` e a senha definida no `.env`. Os scripts de estrutura e dados são executados automaticamente na primeira criação do volume.
+
+Inicie o frontend:
+
+```bash
+cd Front-end/retrogames.web
+npm ci
+npm run dev
+```
+
+Acesse [localhost:5173](http://localhost:5173). Para compilar o frontend, execute `npm run build`.
+
+A estrutura inicial da API pode ser iniciada a partir da raiz:
+
+```bash
+dotnet run --project Backend/RetroGames.WebApi --urls http://localhost:5080
+```
+
+## Banco de dados
+
+O banco contém as tabelas `tb_condicao_jogo`, `tb_perfil`, `tb_plataforma`, `tb_genero`, `tb_jogo`, `tb_jogo_genero` e `tb_usuario`.
+
+Os dados iniciais incluem seis plataformas, oito gêneros, 20 jogos e 40 associações jogo-gênero. Há uma plataforma sem jogos, um jogo inativo e um jogo sem estoque. A tabela de usuários permanece vazia nesta etapa.
+
+- [Estrutura e dados](scripts/database/)
+- [Consultas e testes de integridade](scripts/consultas/)
+- [Modelo de dados](docs/MER.md)
+
+Os exercícios SQL da Aula 1 utilizam JOIN para consulta do modelo. Nos Repositories da Aula 2, cada consulta acessa uma única tabela.
+
+## Verificações
+
+Com o banco iniciado, execute na raiz:
+
+```bash
+python scripts/validar_banco.py
+dotnet run --project scripts/VerificarRepositorios
+```
+
+O primeiro comando requer Python 3 e verifica consultas, restrições de integridade e recriação dos scripts em bancos descartáveis. O segundo executa 32 verificações de integração dos Repositories, incluindo filtros, paginação, gravações, duplicidade e rollback. Os dados temporários são revertidos.
+
+A solução .NET e o frontend foram compilados com sucesso. As consultas foram verificadas pelo cliente MySQL no Docker. O acompanhamento detalhado está em [Progresso das aulas](docs/PROGRESSO_AULAS.md), e as funcionalidades previstas estão nas [Issues](https://github.com/Adauclever/RetroGames-Individual/issues).
+
+## Desenvolvimento
+
+O projeto utiliza apoio de assistente de código conforme as diretrizes do [AGENTS.md](AGENTS.md). As verificações executadas e as limitações de cada etapa estão documentadas no repositório.
