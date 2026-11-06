@@ -21,6 +21,8 @@
 
 - `dotnet build Backend/RetroGames.sln`: sucesso, zero avisos e erros.
 - `pnpm build`: sucesso.
+- `npm install` e `npm run build` com Node 22.23.4/npm 10.9.9: sucesso.
+- Estrutura e dados recriados duas vezes em schemas descartáveis; banco de desenvolvimento preservado.
 - `python scripts/validar_banco.py`: integridade e contagens confirmadas.
 - `dotnet run --project scripts/VerificarRepositorios`: 32 verificações passaram; sem dados temporários restantes.
 - `scripts/consultas/03_repositories.sql`: executado no cliente MySQL com sucesso.
