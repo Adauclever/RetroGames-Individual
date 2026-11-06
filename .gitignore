@@ -1,0 +1,29 @@
+# Arquivos gerados por build e runtime
+bin/
+obj/
+node_modules/
+dist/
+
+# Dados persistentes locais do Docker
+.docker/data/
+
+# Arquivos de ambiente e segredos locais
+.env
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# IDEs e Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# SO
+.DS_Store
+Thumbs.db
+
+
+.env.*
+!.env.example
