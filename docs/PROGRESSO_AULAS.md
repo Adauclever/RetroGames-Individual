@@ -1,10 +1,10 @@
-# Progresso verificado — 06/11/2026
+# Progresso das aulas — atualizado em 08/11/2026
 
 ## Aula 1
 
 1. Repositório individual público, Git independente, `.gitignore`, AGENTS na raiz e seis Issues criados. Quadro público criado e conferido: [RetroGames — Desenvolvimento individual](https://github.com/users/Adauclever/projects/1), com seis funcionalidades em Todo e dois cartões das aulas em Done. A instalação de VS Code/C# Dev Kit não foi inspecionada.
 2. Seis projetos .NET 10 com referências conforme especificação, React/Vite inicial instalado e compilado. Frontend respondeu HTTP 200 em 127.0.0.1:5173. Criação inicial com pnpm; Node 22 portátil oficial, com SHA256 conferido, preparado para a validação final com npm. Node global preservado.
-3. Sete tabelas criadas no MySQL 8. Os scripts contêm PK, FK padrão, NOT NULL, UNIQUE e índice em nome do jogo. A definição física é documentada em MER.md. **Inspeção visual no Table Inspector do Workbench não realizada.**
+3. Sete tabelas criadas no MySQL 8. Os scripts contêm PK, FK padrão, NOT NULL, UNIQUE e índice em nome do jogo. A definição física é documentada em MER.md. Inspeção visual no Table Inspector do Workbench concluída pelo estudante, conforme confirmação em 08/11/2026.
 4. Seis plataformas, oito gêneros, 20 jogos, 40 vínculos; um inativo, um sem estoque, usuários vazios. Confirmado no banco.
 5. Consultas executadas pelo cliente MySQL no Docker. Testes confirmaram erros 1452, 1062, 1451 e 1048; preço zero aceito. Gravações de teste revertidas. Resultados anotados no SQL.
 6. Sete modelos com coluna comentada por propriedade, nulabilidade e constantes de condição/perfil correspondentes aos dados inseridos.
@@ -28,4 +28,4 @@
 - `scripts/consultas/03_repositories.sql`: executado no cliente MySQL com sucesso.
 - Projeto xUnit alinhado à especificação v3; ainda sem testes unitários de Service/Controller, que não foram implementados nestas aulas.
 
-Os testes de SQL foram feitos pela linha de comando, **não pela interface do Workbench**. Assim, o código dos roteiros está implementado, mas não se deve marcar o checklist inteiro como concluído antes da inspeção no Workbench e da conferência dos pré-requisitos locais pelo estudante. O quadro de tarefas já foi criado e está público.
+As verificações automatizadas foram executadas pela linha de comando. Em 08/11/2026, o estudante confirmou a conclusão da conferência no MySQL Workbench: conexão, estrutura das tabelas, contagens, consultas das duas aulas, testes de integridade e preservação dos dados após rollback. Essa conferência manual foi informada pelo estudante; não foi executada pelo assistente. O quadro de tarefas está criado e público.

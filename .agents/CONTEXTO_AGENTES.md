@@ -5,7 +5,7 @@ Repositório: https://github.com/Adauclever/RetroGames-Individual
 Histórico Git independente, branch main. O trabalho do grupo permanece no repositório original.
 Seguir AGENTS.md da raiz e a especificação do professor.
 
-## Estado em 06/11/2026
+## Estado em 08/11/2026
 
 Aula 1: solução de seis projetos net10.0, referências, React 19/Vite 8 em JavaScript, sete tabelas, dados de exemplo, consultas e modelos implementados.
 Aula 2: base ADO.NET e cinco Repositories, interfaces e RepositorySet implementados. MySqlConnector 2.6.2 apenas no projeto Repository.
@@ -17,7 +17,7 @@ Frontend é o modelo inicial oficial do Vite.
 
 ## Validação e pendências
 
-Build .NET sem erros/avisos, build Vite, cinco testes de integridade e 32 verificações de integração passaram. Consultas executadas pelo cliente MySQL do Docker, não pela interface do Workbench.
+Build .NET sem erros/avisos, build Vite, cinco testes de integridade e 32 verificações de integração passaram. Verificações automatizadas executadas pelo cliente MySQL do Docker. Em 08/11/2026, o estudante confirmou a conclusão da conferência manual no Workbench, incluindo estrutura, consultas, integridade e contagens finais.
 Quadro público https://github.com/users/Adauclever/projects/1 conferido: seis Issues de funcionalidades em Todo e dois cartões das aulas em Done. Conferir docs/PROGRESSO_AULAS.md antes de afirmar que todos os itens formais foram concluídos.
-A inspeção do Table Inspector e de VS Code/C# Dev Kit não foi realizada.
+A inspeção do Table Inspector foi confirmada pelo estudante em 08/11/2026. A instalação de VS Code/C# Dev Kit não foi inspecionada pelo assistente.
 Próxima aula: Services e regras de negócio, de acordo com novo roteiro fornecido pelo estudante.

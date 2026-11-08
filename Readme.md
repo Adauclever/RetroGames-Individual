@@ -105,7 +105,7 @@ dotnet run --project scripts/VerificarRepositorios
 
 O primeiro comando requer Python 3 e verifica consultas, restrições de integridade e recriação dos scripts em bancos descartáveis. O segundo executa 32 verificações de integração dos Repositories, incluindo filtros, paginação, gravações, duplicidade e rollback. Os dados temporários são revertidos.
 
-A solução .NET e o frontend foram compilados com sucesso. As consultas foram verificadas pelo cliente MySQL no Docker. O acompanhamento detalhado está em [Progresso das aulas](docs/PROGRESSO_AULAS.md), e as funcionalidades previstas estão nas [Issues](https://github.com/Adauclever/RetroGames-Individual/issues).
+A solução .NET e o frontend foram compilados com sucesso. As consultas foram verificadas pelo cliente MySQL no Docker e conferidas pelo estudante no MySQL Workbench em 08/11/2026. O acompanhamento detalhado está em [Progresso das aulas](docs/PROGRESSO_AULAS.md), e as funcionalidades previstas estão nas [Issues](https://github.com/Adauclever/RetroGames-Individual/issues).
 
 O andamento das tarefas está no [quadro do projeto](https://github.com/users/Adauclever/projects/1), com as funcionalidades previstas e os registros de implementação das Aulas 1 e 2.
 
